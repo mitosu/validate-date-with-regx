@@ -11,7 +11,7 @@ function init(){
     var fechaCorrecta=false;
     var campoFecha= document.getElementById("fecha");
     campoFecha.onblur= validarFecha;
-    //campoFecha.onblur= formatDate;
+
     var meses= new Array();
 
     meses["01"]= "Enero";
@@ -50,12 +50,12 @@ function init(){
         var p= document.createElement("p");
         var mes = "";
         var dat = document.getElementById("fecha").value;
-        date = dat.split("/");
+        date = dat.split("/");//Array de tres posiciones con dia-mes-anno
         for (var i = 0; i < date.length; i++) {
-            if (i === 1) {
-                for (var index in meses) {
-                    if (index == date[i]) {
-                        mes = meses[index];
+            if (i === 1) {//Si estoy en la posición 1 es que estoy en los meses.
+                for (var index in meses) {//Entra en un bucle a comprobar los meses.
+                    if (index == date[i]) {//Si el index actual del array meses, es igual al mes dado, obtener el nombre
+                        mes = meses[index];//del mes que se encuentra en el index actual.
                         fechaMensaje += mes + " ";
                     }
                 }
